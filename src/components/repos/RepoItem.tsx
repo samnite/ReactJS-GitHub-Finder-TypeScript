@@ -4,7 +4,7 @@ export interface Repo {
   name?: string;
   html_url?: string;
   id?: string;
-  repo?: any;
+  repo?: any; // need to fix
 }
 
 interface RepoItemProps extends Repo {}
