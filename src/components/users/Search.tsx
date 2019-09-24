@@ -7,6 +7,8 @@ type State = Readonly<{
 interface SearchProps {
   setAlert(msg: string, type: string): void;
   searchUsers(user: string): void;
+  clearUsers(): void;
+  showClear: boolean;
 }
 
 class Search extends Component<SearchProps, State> {

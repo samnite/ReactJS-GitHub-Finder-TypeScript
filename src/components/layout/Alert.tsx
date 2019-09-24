@@ -4,7 +4,7 @@ interface OwnProps {
   alert: {
     type: string;
     msg: string;
-  };
+  } | null;
 }
 
 type Props = OwnProps;
