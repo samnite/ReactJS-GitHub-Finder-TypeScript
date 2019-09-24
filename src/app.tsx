@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
-import Navbar from './components/layout/Navbar';
+import './app.css';
+import Navbar from './components/layout/navbar';
 import axios from 'axios';
-import Users from './components/users/Users';
-import Search from './components/users/Search';
-import Alert from './components/layout/Alert';
-import About from './components/pages/About';
-import User, { UserInterface } from './components/users/User';
-import { Repo } from './components/repos/RepoItem';
+import Users from './components/users/users';
+import Search from './components/users/search';
+import Alert from './components/layout/аlert';
+import About from './components/pages/about';
+import User, { UserInterface } from './components/users/user';
+import { Repo } from './components/repos/repo-item';
 
 type State = Readonly<{
   users: any[]; //need to fix

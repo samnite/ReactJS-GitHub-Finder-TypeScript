@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import Spinner from '../layout/Spinner';
-import UserItem from './UserItem';
-import '../../App.css';
+import Spinner from '../layout/spinner';
+import UserItem from './user-item';
+import '../../app.css';
 
 interface OwnProps {
   loading: boolean;

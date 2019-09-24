@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
-import Repos from '../repos/Repos';
-import { Repo } from '../repos/RepoItem';
+import Repos from '../repos/repos';
+import { Repo } from '../repos/repo-item';
+import Spinner from '../layout/spinner';
 
 export interface UserInterface {
   getUser(login: string): void;

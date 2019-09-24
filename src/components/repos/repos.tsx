@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import RepoItem, { Repo } from './RepoItem';
+import RepoItem, { Repo } from './repo-item';
 
 interface ReposProps extends Repo {
   repos: Repo[];
