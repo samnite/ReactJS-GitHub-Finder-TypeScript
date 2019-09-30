@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import Repos from '../repos/repos';
 import Spinner from '../layout/spinner';
 import GithubContext, {
-  ContextState
+  GithubStateType
 } from '../../context/github/github-context';
 
 export interface UserInterface {
@@ -42,9 +42,9 @@ export interface UserInterface {
 
 type Props = UserInterface;
 
-const User: FunctionComponent<Props> = ({ getUserRepos, repos, match }) => {
-  const githubContext = useContext<ContextState>(GithubContext);
-  const { getUser, loading, user } = githubContext;
+const User: FunctionComponent<Props> = ({ match }) => {
+  const githubContext = useContext<GithubStateType>(GithubContext);
+  const { getUser, loading, user, getUserRepos } = githubContext;
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
@@ -132,7 +132,7 @@ const User: FunctionComponent<Props> = ({ getUserRepos, repos, match }) => {
         <div className="badge badge-light">Public repos: {public_repos}</div>
         <div className="badge badge-dark">Public Gists: {public_gists}</div>
       </div>
-      <Repos repos={repos} />
+      <Repos />
     </Fragment>
   );
 };

@@ -1,16 +1,18 @@
 import React, { FunctionComponent, useContext, useState } from 'react';
 import GithubContext, {
-  ContextState
+  GithubStateType
 } from '../../context/github/github-context';
+import AlertContext, {
+  AlertStateType
+} from '../../context/alert/alert-context';
 
-interface OwnProps {
-  setAlert(msg: string, type: string): void;
-}
+interface OwnProps {}
 
 type Props = OwnProps;
 
-const Search: FunctionComponent<Props> = ({ setAlert }) => {
-  const githubContext = useContext<ContextState>(GithubContext);
+const Search: FunctionComponent<Props> = () => {
+  const githubContext = useContext<GithubStateType>(GithubContext);
+  const alertContext = useContext<AlertStateType>(AlertContext);
 
   const [text, setText] = useState('');
 
@@ -20,9 +22,8 @@ const Search: FunctionComponent<Props> = ({ setAlert }) => {
   const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (text === '') {
-      setAlert('  Please enter something', 'light');
+      alertContext.setAlert('  Please enter something', 'danger');
     } else {
-      // @ts-ignore
       githubContext.searchUsers(text);
       setText('');
     }

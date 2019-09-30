@@ -21,7 +21,6 @@ const GithubState: FunctionComponent<Props> = props => {
     repos: [],
     loading: false
   };
-  // @ts-ignore
   const [state, dispatch] = useReducer(GithubReducer, initialState);
 
   // Search Users
@@ -41,12 +40,23 @@ const GithubState: FunctionComponent<Props> = props => {
     );
     dispatch({
       type: GET_USER,
-      payload: res.data
+      payload: res.data,
+      loading: false
     });
   };
 
-  // Get Repos
-
+  // Get User Repos
+  const getUserRepos = async (username: string) => {
+    setLoading();
+    const res = await axios.get(
+      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+    dispatch({
+      type: GET_REPOS,
+      payload: res.data,
+      loading: false
+    });
+  };
   // Clear Users
   const clearUsers = (): void =>
     dispatch({
@@ -59,17 +69,14 @@ const GithubState: FunctionComponent<Props> = props => {
   return (
     <GithubContext.Provider
       value={{
-        // @ts-ignore
         users: state.users,
-        // @ts-ignore
         user: state.user,
-        // @ts-ignore
         repos: state.repos,
-        // @ts-ignore
         loading: state.loading,
         searchUsers,
         clearUsers,
-        getUser
+        getUser,
+        getUserRepos
       }}
     >
       {props.children}

@@ -3,7 +3,7 @@ import Spinner from '../layout/spinner';
 import UserItem from './user-item';
 import '../../app.css';
 import GithubContext, {
-  ContextState
+  GithubStateType
 } from '../../context/github/github-context';
 
 interface OwnProps {}
@@ -11,7 +11,7 @@ interface OwnProps {}
 type Props = OwnProps;
 
 const Users: FunctionComponent<Props> = () => {
-  const githubContext = useContext<ContextState>(GithubContext);
+  const githubContext = useContext<GithubStateType>(GithubContext);
 
   const { loading, users } = githubContext;
 
