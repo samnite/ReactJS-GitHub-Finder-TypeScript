@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useContext, useState } from 'react';
+
 import GithubContext, {
   GithubStateType
 } from '../../context/github/github-context';
@@ -6,11 +7,7 @@ import AlertContext, {
   AlertStateType
 } from '../../context/alert/alert-context';
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const Search: FunctionComponent<Props> = () => {
+const Search: FunctionComponent = () => {
   const githubContext = useContext<GithubStateType>(GithubContext);
   const alertContext = useContext<AlertStateType>(AlertContext);
 

@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useReducer } from 'react';
 import axios from 'axios';
+
 import GithubReducer from './guthub-reducer';
 import GithubContext from './github-context';
 import {
@@ -9,10 +10,6 @@ import {
   GET_USER,
   GET_REPOS
 } from '../types';
-
-interface OwnProps {}
-
-type Props = OwnProps;
 
 let githubClientId: string | undefined;
 let githubClientSecret: string | undefined;
@@ -25,7 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
   githubClientSecret = process.env.GITHUB_CLIENT_SECRET;
 }
 
-const GithubState: FunctionComponent<Props> = props => {
+const GithubState: FunctionComponent = props => {
   const initialState = {
     users: [],
     user: {},

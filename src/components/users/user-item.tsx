@@ -9,7 +9,7 @@ interface OwnProps {
 type Props = OwnProps;
 
 const UserItem: FunctionComponent<Props> = ({
-  user: { login, avatar_url, html_url }
+  user: { login, avatar_url }
 }) => {
   return (
     <div className="card text-center">

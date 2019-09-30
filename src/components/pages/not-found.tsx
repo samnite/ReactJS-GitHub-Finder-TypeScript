@@ -1,10 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const NotFound: FunctionComponent<Props> = props => {
+const NotFound: FunctionComponent = () => {
   return (
     <div>
       <h1>Not Found</h1>

@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useContext } from 'react';
+
 import Spinner from '../layout/spinner';
 import UserItem from './user-item';
 import '../../app.css';
@@ -6,11 +7,7 @@ import GithubContext, {
   GithubStateType
 } from '../../context/github/github-context';
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const Users: FunctionComponent<Props> = () => {
+const Users: FunctionComponent = () => {
   const githubContext = useContext<GithubStateType>(GithubContext);
 
   const { loading, users } = githubContext;

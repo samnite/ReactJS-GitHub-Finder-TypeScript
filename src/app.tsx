@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import './app.css';
 import Navbar from './components/layout/navbar';
 import Alert from './components/layout/аlert';
@@ -10,11 +11,7 @@ import AlertState from './context/alert/alert-state';
 import Home from './components/pages/home';
 import NotFound from './components/pages/not-found';
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const App: FunctionComponent<Props> = props => {
+const App: FunctionComponent = () => {
   return (
     <GithubState>
       <AlertState>

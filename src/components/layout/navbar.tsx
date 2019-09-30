@@ -5,7 +5,7 @@ interface NavbarProps {
   icon: string;
   title: string;
 }
-const Navbar = ({ icon, title }: NavbarProps): any => {
+const Navbar = ({ icon, title }: NavbarProps) => {
   return (
     <nav className="navbar bg-primary">
       <h1>

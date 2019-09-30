@@ -1,11 +1,7 @@
 import React, { FunctionComponent, Fragment } from 'react';
 import spinner from './spinner-img.gif';
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const Spinner: FunctionComponent<Props> = props => {
+const Spinner: FunctionComponent = () => {
   return (
     <Fragment>
       <img

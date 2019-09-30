@@ -1,10 +1,6 @@
 import React, { FunctionComponent, Fragment } from 'react';
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const About: FunctionComponent<Props> = props => {
+const About: FunctionComponent = () => {
   return (
     <Fragment>
       <h1>About this App</h1>

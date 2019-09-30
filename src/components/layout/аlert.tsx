@@ -1,11 +1,7 @@
 import React, { FunctionComponent, useContext } from 'react';
 import AlertContext from '../../context/alert/alert-context';
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const Alert: FunctionComponent<Props> = (): any => {
+const Alert: FunctionComponent = (): any => {
   const alertContext = useContext(AlertContext);
   const { alert } = alertContext;
 

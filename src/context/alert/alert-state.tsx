@@ -1,13 +1,10 @@
 import React, { FunctionComponent, useReducer } from 'react';
+
 import { SET_ALERT, REMOVE_ALERT } from '../types';
 import AlertContext from './alert-context';
 import AlertReducer from './alert-reducer';
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const AlertState: FunctionComponent<Props> = props => {
+const AlertState: FunctionComponent = props => {
   const initialState = null;
 
   const [state, dispatch] = useReducer(AlertReducer, initialState);

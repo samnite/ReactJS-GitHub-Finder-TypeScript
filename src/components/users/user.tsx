@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useContext
 } from 'react';
+
 import { Repo } from '../repos/repo-item';
 import { Link } from 'react-router-dom';
 import Repos from '../repos/repos';
@@ -13,28 +14,13 @@ import GithubContext, {
 } from '../../context/github/github-context';
 
 export interface UserInterface {
-  getRepos: any;
+  getRepos(login: string): void;
   getUser(login: string): void;
   getUserRepos(login: string): void;
   match: {
     params: {
       login: string;
     };
-  };
-  user: {
-    name: string;
-    avatar_url: string;
-    location: string;
-    bio: string;
-    blog: string;
-    login: string;
-    html_url: string;
-    company: string;
-    followers: string;
-    following: string;
-    public_repos: string;
-    public_gists: string;
-    hireable: string;
   };
   loading: boolean;
   repos: Repo[];
