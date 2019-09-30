@@ -1,8 +1,16 @@
-import React, { Fragment, FunctionComponent, useEffect } from 'react';
+import React, {
+  Fragment,
+  FunctionComponent,
+  useEffect,
+  useContext
+} from 'react';
 import { Repo } from '../repos/repo-item';
 import { Link } from 'react-router-dom';
 import Repos from '../repos/repos';
 import Spinner from '../layout/spinner';
+import GithubContext, {
+  ContextState
+} from '../../context/github/github-context';
 
 export interface UserInterface {
   getRepos: any;
@@ -34,14 +42,9 @@ export interface UserInterface {
 
 type Props = UserInterface;
 
-const User: FunctionComponent<Props> = ({
-  user,
-  loading,
-  getUser,
-  getUserRepos,
-  repos,
-  match
-}) => {
+const User: FunctionComponent<Props> = ({ getUserRepos, repos, match }) => {
+  const githubContext = useContext<ContextState>(GithubContext);
+  const { getUser, loading, user } = githubContext;
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);

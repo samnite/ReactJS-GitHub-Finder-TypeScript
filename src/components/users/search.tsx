@@ -1,20 +1,17 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useContext, useState } from 'react';
+import GithubContext, {
+  ContextState
+} from '../../context/github/github-context';
 
 interface OwnProps {
   setAlert(msg: string, type: string): void;
-  searchUsers(user: string): void;
-  clearUsers(): void;
-  showClear: boolean;
 }
 
 type Props = OwnProps;
 
-const Search: FunctionComponent<Props> = ({
-  searchUsers,
-  showClear,
-  clearUsers,
-  setAlert
-}) => {
+const Search: FunctionComponent<Props> = ({ setAlert }) => {
+  const githubContext = useContext<ContextState>(GithubContext);
+
   const [text, setText] = useState('');
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -25,7 +22,8 @@ const Search: FunctionComponent<Props> = ({
     if (text === '') {
       setAlert('  Please enter something', 'light');
     } else {
-      searchUsers(text);
+      // @ts-ignore
+      githubContext.searchUsers(text);
       setText('');
     }
   };
@@ -46,8 +44,11 @@ const Search: FunctionComponent<Props> = ({
           className="btn btn-dark btn-block"
         />
       </form>
-      {showClear && (
-        <button className="btn btn-light btn-block" onClick={clearUsers}>
+      {githubContext.users.length > 0 && (
+        <button
+          className="btn btn-light btn-block"
+          onClick={githubContext.clearUsers}
+        >
           Clear
         </button>
       )}
