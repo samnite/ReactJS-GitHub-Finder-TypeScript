@@ -2,6 +2,9 @@
 
 > React app to search Github profiles. This app uses the TypeScript and Context API along with the useContext and useReducer hooks for state management
 
+Demo:
+https://github-finder-react-ts.netlify.com/
+
 ## Usage
 
 ### `npm install` or`yarn`
